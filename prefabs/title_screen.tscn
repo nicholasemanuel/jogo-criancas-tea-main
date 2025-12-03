@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://bymakf1vjukoh"]
+
+[ext_resource type="Texture2D" uid="uid://dxuyylsbhk46t" path="res://assets/Imagem_do_WhatsApp_de_2025-11-30_as_22.05.22_7971961d.jpg" id="1_aedtt"]
+[ext_resource type="Script" uid="uid://gyb0rjdhkpaf" path="res://title_screen.gd" id="1_agckt"]
+[ext_resource type="Texture2D" uid="uid://cnet1xfgakil8" path="res://assets/logo_game_teste.png" id="2_u6xng"]
+[ext_resource type="Texture2D" uid="uid://ddeym5h20xugd" path="res://assets/title_austin.png" id="3_agckt"]
+[ext_resource type="Theme" uid="uid://cfxeba0reaqfh" path="res://prefabs/title_screen.tres" id="4_nvgea"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_agckt")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_aedtt")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="game_logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_u6xng")
+
+[node name="comecar_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_nvgea")
+text = "COMEÇAR"
+
+[node name="credits_btn2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "CRÉDITOS"
+
+[node name="sair_btn3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SAIR
+"
+
+[node name="austin" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_agckt")
+expand_mode = 2
+flip_h = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/comecar_btn" to="." method="_on_comecar_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/credits_btn2" to="." method="_on_credits_btn_2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/sair_btn3" to="." method="_on_sair_btn_3_pressed"]
